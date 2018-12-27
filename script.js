@@ -109,3 +109,6 @@ rightArrow.addEventListener('click', slideRight);
 slideButtons.forEach(function(slideButton){
     addEvent(slideButtons.indexOf(slideButton));
 });
+
+
+window.screen.lockOrientation(orientation);
