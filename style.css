@@ -1,0 +1,253 @@
+body{
+margin:0;
+padding: 0;
+background-color: #B7D3E3;
+font-family: 'Signika', sans-serif;
+}
+
+
+/*navbar top of screen*/
+
+#navbar{
+   text-align: center;
+  background:linear-gradient(to right,#423AB1 80%,black 99%);/*//60 42 27 */
+  padding: 10px 0 10px 0;  
+  border-bottom: ridge;
+  border-color: grey;
+  width: 100%;
+}
+
+.page-name{
+  color: white;
+  margin-left: 10px;
+  padding-top:  10px;}
+  
+a{
+  text-decoration: none;
+}
+
+/* nav at bottom of screen*/
+.footer{
+  position: absolute;
+  bottom:0;
+  left: 0;
+  text-align: right; 
+  width: 100%; 
+  margin:0;
+  padding: 5px 0 5px 0;
+  background:linear-gradient(to left,#5088D6 80%, black);
+  border-top: ridge;
+  border-color: grey;  
+}
+
+.footer .nav-buttons{
+width: 50%;
+margin: 0 auto;
+display: flex;
+justify-content: space-around;
+}
+
+/*slide container which has arrws and slidewrapper */
+.slide-container{
+  position: relative;
+  width: 100vw;
+  height:67vh;  
+  margin: 20px 0 20px 0;
+  display: flex;
+justify-content: space-around;
+/*border: solid red;*/
+}
+
+.slide-container #wrap{
+  width: 70%;
+  height: 100%;
+  margin: auto;
+  position: relative;
+/*border: solid yellow;*/
+}
+
+.slide-container #wrap .slides{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 10px 10px 50px #1B2652;
+  background-color: #B7D3E3;
+  text-align: center;
+  /* display none (below) hides the slides and then through javascript startSlide() will display first slide upon load*/
+  display: none;
+  line-height: 1.4;
+  /*border: solid black;*/
+  }
+
+
+/*individual slide styling*/
+#slide1 img{
+border-radius: 25%;
+  border-style: ridge;
+}
+
+#slide1 #profile #info{
+display: flex; 
+flex-direction: column;
+}
+
+#slide2 #iframe-container{
+  width: 35%;  
+  margin: 0 auto;
+}
+
+#slide2 #iframe-container iframe{
+  width: 100%; 
+}
+
+#slide3 img{
+margin: 10px auto;
+}
+
+#slide4 img{
+   margin: 20px;
+   height: 25vh;
+  border-radius: 15%;
+  border: ridge;
+}
+
+
+
+#slide5 #quote{
+  margin: 0 auto;
+}
+
+/*arrows*/
+
+.arrow:active{
+  transform: scale(1.1);
+  transition: 0.2s ease-out;
+}
+
+/*left arrow*/
+.slide-container #left-arrow {
+  cursor: pointer;
+  /*width: 0; */
+  height: 0; 
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;  
+  border-right:25px solid #080B7D;
+  position: absolute;
+  top: 40%;
+  margin: 0 10px 0 10px; 
+  left: 1%;
+}
+
+/*right arrow*/
+.slide-container #right-arrow{
+  cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;  
+  border-left:25px solid #080B7D;
+  position: absolute;
+  top: 40%;
+  margin: 0 10px 0 10px;
+  right: 1%; 
+}
+
+/*Fading animation */
+/*make sure to add them to each slide - note to me;*/
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/*navigation dots underneath carousal*/
+#slide-nav{
+  width:70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#slide-nav .slide-buttons{
+cursor: pointer;
+background-color: grey;
+border-radius: 50%;
+width: 15px;
+height: 15px;  
+}
+
+/*this class will be assigned to the active slide button through JS*/
+#slide-nav .slide-buttons.active{
+background-color: #080B7D;
+transform: scale(1.5);
+}
+
+#slide-nav .slide-buttons:hover{
+  background-color: #080B7D;
+  /*transform: scale(1.5);*/
+  /*transition: 1s ease-out; */
+}
+
+
+/*so that contentstays within slides also keeps iframe in slide 2 within its boundaries*/
+@media screen and (max-width: 960px) {
+ .slide-container #wrap .slides{
+  font-size: 2.3vh;
+  line-height: normal;
+ }
+ 
+ .slide-container{
+  height:72vh;
+}
+
+/*phone version...iphone width 375x812*/
+@media screen and (max-width: 500px) {
+.slide-container{
+  height:74vh;
+}
+
+#navbar .page-name{
+  padding:0;
+}
+
+.nav-buttons{
+  width: 60%;
+}
+
+.slide-container #wrap{
+  width: 100%;
+  height: 100%;
+  margin: 0px 10px 0px 10px;
+  position: relative;
+}
+
+.slide-container #wrap .slides{
+position: absolute;
+width: 100%;
+  font-size: 2.4vh;
+    line-height: normal;
+}
+
+.arrow{
+  display: none;
+} 
+ 
+}
+
+@media screen and (max-width: 348px) {
+  /*makes slide scrollable, as slide content began to overflow*/
+  .slides{
+    overflow: auto;
+  }
