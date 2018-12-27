@@ -111,4 +111,3 @@ slideButtons.forEach(function(slideButton){
 });
 
 
-window.screen.lockOrientation(orientation);
