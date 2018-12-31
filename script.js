@@ -111,3 +111,8 @@ slideButtons.forEach(function(slideButton){
 });
 
 
+// for screens less than 500px width user will be informed to use dot navigation to toggle through slides, as the arrows will be removed.
+if (screen.width < 500) {
+	alert("Please use the dots to toggle through slides");
+    // auto();
+}
