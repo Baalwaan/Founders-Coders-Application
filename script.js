@@ -7,16 +7,16 @@ let leftArrow = document.querySelector('#left-arrow');
 let rightArrow = document.querySelector('#right-arrow');
 
 // will use counter to keep track of what slide to show next/previous
-var count = 0;
+let count = 0;
 
  //slide buttons underneath slidecontainer turned into a real array
-var slideButtons = Array.prototype.slice.call( document.getElementById('slide-nav').children );
+let slideButtons = Array.prototype.slice.call( document.getElementById('slide-nav').children );
 
 /* This function gives the first slide-button at bottom of slides class 'active' 
 which will make slide button appear bigger to let user know that they viewing that slide, but it will be called from inside startSlide()*/
 
-var initDot = function(){
-var firstSlideButton =  document.querySelector('.slide-buttons')//selects first dot
+let initDot = function(){
+let firstSlideButton =  document.querySelector('.slide-buttons')//selects first dot
 firstSlideButton.classList.add('active')
 
 
@@ -24,7 +24,7 @@ firstSlideButton.classList.add('active')
 
 /*this function will be used on each function to wipe our slide wrapper clean before displaying next slide
 and also remove class 'active' from the slide button that is being viewed*/
-var reset = function(){
+let reset = function(){
 	for(let i = 0; i < slides.length; i++){
 		slides[i].style.display = 'none';
 		slideButtons[i].classList.remove('active');
@@ -32,16 +32,16 @@ var reset = function(){
 }
 
 //makes only the first slide visible upon load
-var startSlide = function(){
+let startSlide = function(){
 	reset();
-	slides[0].style.display = 'block';;
+	slides[0].style.display = 'block';
 	initDot();
 };
 
 startSlide();
 
 //left arrow to show previous slide
-var slideLeft = function(){
+let slideLeft = function(){
 	reset();
 
 	if(count === 0){
@@ -57,7 +57,7 @@ var slideLeft = function(){
 }
 
 //right arrow show next slide
-var slideRight = function(){
+let slideRight = function(){
 	reset();
 	if(count === slides.length-1){
 		count = -1;
@@ -73,7 +73,7 @@ var slideRight = function(){
 	}
 
 //keypad functionality for left', 'right'
-var checkKey = function(e) {
+let checkKey = function(e) {
 
     e = e || window.event;
 
@@ -88,7 +88,7 @@ var checkKey = function(e) {
 }
 
 // giving slidebuttons underneath slides ability to listen for click
-var addEvent = function(index){
+let addEvent = function(index){
 	slideButtons[index].addEventListener('click', function(){
 	reset();
 	slideButtons[index].classList.add('active');
